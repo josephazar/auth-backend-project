@@ -128,4 +128,16 @@ exit
 
 
 
+*********CONNECTING TO THE DATABASE**********
+Installing DBEAVER to connect to the DB
 
+****** adding env variables ******
+mkdir src/config
+touch src/config/environment.js
+touch src/config/database.js
+
+Create environment object in environment.js
+
+for creating a random secret:
+require("crypto")
+crypto.randomBytes(64).toString("hex")
