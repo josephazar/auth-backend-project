@@ -84,3 +84,48 @@ npm i pg pg-hstore
 pg-hstore ==> serializing and decerializing json data in hstore format
 
 npm i cls-hooked
+
+
+
+*********CREATING THE DATABASE**********
+create the docker-compose.yaml file
+touch docker-compose.yaml
+
+We will create two databases, one for developing our app and one for testing our app
+
+testing strategies:
+- real database set with docker or postgres or mysql
+pros: we are testing against a real database ==> more reliable
+cons: more difficult to setup locally and continuous integration environments
+
+- in memory databses:
+pros: easier to setup with npm
+cons: they simulate real db but aren't ==> cannot do complex stuffs
+
+-sqlite:
+pros: lightweight
+cons: less complex than Postgres
+
+create the .env file ==> variables available for postgres services
+touch .env
+
+touch .env.test ==> variables available for testing db
+
+in docker-compose.yaml
+ports:
+    machine: postgres inside the container
+
+It doesn't matter if the two services have the same port because they are two different containers
+
+run docker compose:
+docker-compose up -d
+docker ps
+docker exec -it auth-backend-project-db bash
+psql -U postgres
+\l
+exit
+exit
+
+
+
+
