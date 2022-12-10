@@ -1,0 +1,86 @@
+Initialize Git Repo (auth-backend-course the name I have chosen of the repository)
+git init
+
+Create .nvmrc file
+touch .nvmrc
+nvm list
+and put the version of nodejs in .nvmrc file
+when typing "nvm use" you will be using the version in .nvmrc file
+
+
+
+Initialize package.json using:
+npm init -y
+
+
+create a .gitignore file and put inside it:
+/node_modules
+.env
+
+mkdir src
+mkdir tests
+
+git add .
+git commit -m "Initial Setup"
+
+Connect project to Github
+Create repo on github (change main to master)
+
+git remote add origin git@github.com:josephazar/auth-backend-project
+git push -u origin master
+
+
+******** ADDING SOME DEPENDENCIES **********
+BABEL ==> USE ES6 synthax for JavaScript
+lets add some dependencies related to Babel (-D ==> Development)
+npm i -D @babel/cli @babel/core @babel/node @babel/preset-env
+
+add the file babel.config.js and add the code
+touch babel.config.js
+
+Install nodemon as dev dependency ==> restart our server automatically whenever we make a change
+npm i -D nodemon
+
+
+In package.json add the below two scripts:
+    "dev": "nodemon --exec babel-node src/server.js",
+    "debug": "npm run dev -- --inspect",
+
+Install the testing framework Jest
+npm i -D jest babel-jest
+
+
+Create the config file: jest.config.js and add the code
+touch jest.config.js
+
+Add the following scripts to package.json:
+    "test": "jest --runInBand",
+    "test:watch": "npm test -- --watch"
+
+
+*********ADDING ALL THE DEPENDENCIES**********
+supertest something that is going to help us with testing
+npm i -D supertest
+
+Express
+npm i express
+
+Evironnement variables
+npm i dotenv
+
+Morgan (for logging)
+npm i morgan
+
+bcrypt for hashing passwords
+npm i bcrypt
+
+for json web tokens (generating signing verified tokens)
+npm i jsonwebtoken
+
+sequelize and postgreSQL
+npm i sequelize
+npm i pg pg-hstore
+
+pg-hstore ==> serializing and decerializing json data in hstore format
+
+npm i cls-hooked
